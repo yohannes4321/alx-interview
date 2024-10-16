@@ -1,12 +1,15 @@
 #!/usr/bin/python3
 """
-Main file for testing
+Function that calculates the min operations to copy and paste letters
 """
 
-minOperations = __import__('0-minoperations').minOperations
 
-n = 4
-print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
-
-n = 12
-print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+def minOperations(n):
+    nOpe = 0
+    minOpe = 2
+    while n > 1:
+        while n % minOpe == 0:
+            nOpe += minOpe
+            n /= minOpe
+        minOpe += 1
+    return nOpe
